@@ -5,6 +5,12 @@ use Test::More;
 use Alien::Wenity;
 use IO::Prompt::Tiny qw(prompt);
 
+if ($^O !~ /win/i)
+{
+	plan skip_all => 'no testing on non-Windows systems';
+	exit;
+}
+
 {
 	my $cmd = sprintf(
 		'"%s" --test-command',
@@ -16,7 +22,6 @@ use IO::Prompt::Tiny qw(prompt);
 my $interactive = prompt("Interactive tests? (y/n)", "n");
 if ($interactive !~ /y/i)
 {
-	pass;
 	done_testing;
 	exit;
 }
