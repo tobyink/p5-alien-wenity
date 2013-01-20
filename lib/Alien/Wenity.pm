@@ -6,7 +6,7 @@ use warnings;
 
 BEGIN {
 	$Alien::Wenity::AUTHORITY = 'cpan:TOBYINK';
-	$Alien::Wenity::VERSION   = '0.001';
+	$Alien::Wenity::VERSION   = '0.000_01';
 }
 
 use File::ShareDir ':ALL';
