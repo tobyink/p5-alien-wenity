@@ -9,27 +9,11 @@ BEGIN {
 	$Alien::Wenity::VERSION   = '0.001';
 }
 
-use Carp;
 use File::ShareDir ':ALL';
 
 sub path {
 	my $class = shift;
 	dist_file('Alien-Wenity', 'Wenity.exe');
-}
-
-sub command {
-	my $class = shift;
-	
-	my @wine = ();
-	if ($^O !~ /win/i) {
-		require File::Which;
-		my $tmp = File::Which::which('wine')
-			or croak "Wenity needs wine!";
-		push @wine, $tmp;
-	}
-	
-	require System::Command;
-	return "System::Command"->new(@wine, $class->path, @_);
 }
 
 1;

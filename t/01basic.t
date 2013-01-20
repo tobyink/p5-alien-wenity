@@ -14,15 +14,11 @@ if ($interactive !~ /y/i)
 	exit;
 }
 
-my $cmd = Alien::Wenity->command(
-	"--entry",
-	"--text",
-	"Type 'pass' to pass the test.",
+my $cmd = sprintf(
+	'"%s" --entry --text "Type PASS to pass the test."',
+	Alien::Wenity->path,
 );
 
-my $stdout = $cmd->close->stdout;
-my $line   = <$stdout>;
-
-like($line, qr{pass}i);
+like(qx{$cmd}, qr{pass}i);
 
 done_testing;
