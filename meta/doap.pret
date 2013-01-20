@@ -1,0 +1,18 @@
+# This file contains general metadata about the project.
+
+@prefix : <http://usefulinc.com/ns/doap#>.
+
+`Alien-Wenity`
+	:programming-language "Perl" ;
+	:shortdesc            "install Wenity command-line tool";
+	:homepage             <https://metacpan.org/release/Alien-Wenity>;
+	:download-page        <https://metacpan.org/release/Alien-Wenity>;
+	:bug-database         <http://rt.cpan.org/Dist/Display.html?Queue=Alien-Wenity>;
+	:created              2013-01-20;
+	:license              <http://dev.perl.org/licenses/>;
+	:maintainer           cpan:TOBYINK;
+	:developer            cpan:TOBYINK.
+
+<http://dev.perl.org/licenses/>
+	dc:title  "the same terms as the perl 5 programming language system itself".
+

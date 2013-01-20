@@ -1,0 +1,13 @@
+# This file provides instructions for packaging.
+
+`Alien-Wenity`
+	perl_version_from m`Alien::Wenity`;
+	version_from      m`Alien::Wenity`;
+	readme_from       m`Alien::Wenity`;
+	test_requires     p`Test::More 0.61` ;
+	build_requires    p`File::Which`;
+	recommends        p`File::Which`;
+	recommends        p`System::Command`;
+	requires          p`File::ShareDir`;
+.
+
