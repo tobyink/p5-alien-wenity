@@ -11,13 +11,10 @@ if ($^O !~ /win/i)
 	exit;
 }
 
-{
-	my $cmd = sprintf(
-		'"%s" --test-command',
-		Alien::Wenity->path,
-	);
-	like(qx{$cmd}, qr{\bok\b});
-}
+my $PATH = eval { Alien::Wenity->path } || 'share\\Wenity.exe';
+diag "PATH: $PATH";
+
+like(qx{"$PATH" --test-command}, qr{\bok\b});
 
 my $interactive = prompt("Interactive tests? (y/n)", "n");
 if ($interactive !~ /y/i)
@@ -27,11 +24,7 @@ if ($interactive !~ /y/i)
 }
 else
 {
-	my $cmd = sprintf(
-		'"%s" --entry --text "Type PASS to pass the test."',
-		Alien::Wenity->path,
-	);
-	like(qx{$cmd}, qr{pass}i);
+	like(qx{"$PATH" --entry --text "Type PASS to pass the test."}, qr{pass}i);
 }
 
 done_testing;
